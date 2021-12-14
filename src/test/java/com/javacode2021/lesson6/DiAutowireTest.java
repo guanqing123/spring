@@ -18,4 +18,12 @@ public class DiAutowireTest {
         System.out.println(context.getBean("diAutowireByName1"));
         System.out.println(context.getBean("diAutowireByName2"));
     }
+
+    @Test
+    public void diAutowireByType () {
+        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByType.xml";
+        ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
+        // System.out.println(context.getBean("diAutowireByName1"));
+        System.out.println(context.getBean("diAutowireByName2"));
+    }
 }
