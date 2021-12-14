@@ -26,4 +26,15 @@ public class DiAutowireTest {
         // System.out.println(context.getBean("diAutowireByName1"));
         System.out.println(context.getBean("diAutowireByName2"));
     }
+
+    @Test
+    public void diAutowireByTypeExtend () {
+        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByTypeExtend.xml";
+        ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
+        DiAutowireByTypeExtend diAutowireByTypeExtend = context.getBean(DiAutowireByTypeExtend.class);
+        System.out.println("serviceList：" + diAutowireByTypeExtend.getServiceList());
+        System.out.println("baseServiceList：" + diAutowireByTypeExtend.getBaseServiceList());
+        System.out.println("service1Map：" + diAutowireByTypeExtend.getService1Map());
+        System.out.println("baseServiceMap：" + diAutowireByTypeExtend.getBaseServiceMap());
+    }
 }
