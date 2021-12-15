@@ -44,4 +44,12 @@ public class DiAutowireTest {
         ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
         System.out.println(context.getBean("diAutowireByConstructor"));
     }
+
+    @Test
+    public void diAutowireByDefault () {
+        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByDefault.xml";
+        ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
+        System.out.println(context.getBean("diAutowireByDefault1"));
+        System.out.println(context.getBean("diAutowireByDefault2"));
+    }
 }
