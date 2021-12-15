@@ -37,4 +37,11 @@ public class DiAutowireTest {
         System.out.println("service1Map：" + diAutowireByTypeExtend.getService1Map());
         System.out.println("baseServiceMap：" + diAutowireByTypeExtend.getBaseServiceMap());
     }
+
+    @Test
+    public void diAutowireByConstructor () {
+        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByConstructor.xml";
+        ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
+        System.out.println(context.getBean("diAutowireByConstructor"));
+    }
 }
