@@ -4,15 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="com.javacode2021.lesson6.DiAutowireByConstructor.Service1">
+    <bean class="com.javacode2021.lesson8.DiAutowireByConstructor.Service1">
         <property name="desc" value="service1"/>
     </bean>
 
-    <bean class="com.javacode2021.lesson6.DiAutowireByConstructor.Service2">
+    <bean class="com.javacode2021.lesson8.DiAutowireByConstructor.Service2">
         <property name="desc" value="service2"/>
     </bean>
 
-    <bean id="diAutowireByConstructor" class="com.javacode2021.lesson6.DiAutowireByConstructor"
+    <bean id="diAutowireByConstructor" class="com.javacode2021.lesson8.DiAutowireByConstructor"
             autowire="constructor"/>
 
 </beans>

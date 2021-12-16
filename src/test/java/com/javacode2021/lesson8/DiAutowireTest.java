@@ -1,4 +1,4 @@
-package com.javacode2021.lesson6;
+package com.javacode2021.lesson8;
 
 import com.javacode2021.utils.IocUtils;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class DiAutowireTest {
 
     @Test
     public void diAutowireByName () {
-        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByName.xml";
+        String beanXml = "classpath:/com/javacode2021/lesson8/diAutowireByName.xml";
         ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
         System.out.println(context.getBean("diAutowireByName1"));
         System.out.println(context.getBean("diAutowireByName2"));
@@ -21,15 +21,15 @@ public class DiAutowireTest {
 
     @Test
     public void diAutowireByType () {
-        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByType.xml";
+        String beanXml = "classpath:/com/javacode2021/lesson8/diAutowireByType.xml";
         ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
-        // System.out.println(context.getBean("diAutowireByName1"));
-        System.out.println(context.getBean("diAutowireByName2"));
+        // System.out.println(context.getBean("diAutowireByType1"));
+        System.out.println(context.getBean("diAutowireByType2"));
     }
 
     @Test
     public void diAutowireByTypeExtend () {
-        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByTypeExtend.xml";
+        String beanXml = "classpath:/com/javacode2021/lesson8/diAutowireByTypeExtend.xml";
         ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
         DiAutowireByTypeExtend diAutowireByTypeExtend = context.getBean(DiAutowireByTypeExtend.class);
         System.out.println("serviceList：" + diAutowireByTypeExtend.getServiceList());
@@ -40,14 +40,14 @@ public class DiAutowireTest {
 
     @Test
     public void diAutowireByConstructor () {
-        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByConstructor.xml";
+        String beanXml = "classpath:/com/javacode2021/lesson8/diAutowireByConstructor.xml";
         ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
         System.out.println(context.getBean("diAutowireByConstructor"));
     }
 
     @Test
     public void diAutowireByDefault () {
-        String beanXml = "classpath:/com/javacode2021/lesson6/diAutowireByDefault.xml";
+        String beanXml = "classpath:/com/javacode2021/lesson8/diAutowireByDefault.xml";
         ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
         System.out.println(context.getBean("diAutowireByDefault1"));
         System.out.println(context.getBean("diAutowireByDefault2"));

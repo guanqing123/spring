@@ -1,4 +1,4 @@
-package com.javacode2021.lesson6;
+package com.javacode2021.lesson8;
 
 import lombok.Data;
 import lombok.Getter;

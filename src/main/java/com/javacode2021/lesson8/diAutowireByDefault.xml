@@ -5,23 +5,23 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd"
         default-autowire="byName">
 
-    <bean id="service1" class="com.javacode2021.lesson6.DiAutowireByDefault.Service1">
+    <bean id="service1" class="com.javacode2021.lesson8.DiAutowireByDefault.Service1">
         <property name="desc" value="service1"/>
     </bean>
 
-    <bean id="service2" class="com.javacode2021.lesson6.DiAutowireByDefault.Service2">
+    <bean id="service2" class="com.javacode2021.lesson8.DiAutowireByDefault.Service2">
         <property name="desc" value="service2"/>
     </bean>
 
-    <bean id="service2-1" class="com.javacode2021.lesson6.DiAutowireByDefault.Service2">
+    <bean id="service2-1" class="com.javacode2021.lesson8.DiAutowireByDefault.Service2">
         <property name="desc" value="service2-1"/>
     </bean>
 
     <!--@2 autowire：default，会采用beans中的default-autowire指定的配置-->
-    <bean id="diAutowireByDefault1" class="com.javacode2021.lesson6.DiAutowireByDefault" autowire="default"/>
+    <bean id="diAutowireByDefault1" class="com.javacode2021.lesson8.DiAutowireByDefault" autowire="default"/>
 
     <!--@3 autowire：default，会采用beans中的default-autowire指定的配置，还可以使用手动的方式自动注入进行覆盖，手动的优先级更高一些 -->
-    <bean id="diAutowireByDefault2" class="com.javacode2021.lesson6.DiAutowireByDefault" autowire="default">
+    <bean id="diAutowireByDefault2" class="com.javacode2021.lesson8.DiAutowireByDefault" autowire="default">
         <property name="service2" ref="service2-1"/>
     </bean>
 </beans>

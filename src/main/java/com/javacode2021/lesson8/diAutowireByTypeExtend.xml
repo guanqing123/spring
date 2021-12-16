@@ -4,18 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="service1" class="com.javacode2021.lesson6.DiAutowireByTypeExtend.Service1">
+    <bean id="service1" class="com.javacode2021.lesson8.DiAutowireByTypeExtend.Service1">
         <property name="desc" value="service1"/>
     </bean>
 
-    <bean id="service2" class="com.javacode2021.lesson6.DiAutowireByTypeExtend.Service2">
+    <bean id="service2" class="com.javacode2021.lesson8.DiAutowireByTypeExtend.Service2">
         <property name="desc" value="service2"/>
     </bean>
 
-    <bean id="service2-1" class="com.javacode2021.lesson6.DiAutowireByTypeExtend.Service2">
+    <bean id="service2-1" class="com.javacode2021.lesson8.DiAutowireByTypeExtend.Service2">
         <property name="desc" value="service2-1"/>
     </bean>
 
-    <bean id="diAutowireByTypeExtend" class="com.javacode2021.lesson6.DiAutowireByTypeExtend" autowire="byType"/>
+    <bean id="diAutowireByTypeExtend" class="com.javacode2021.lesson8.DiAutowireByTypeExtend" autowire="byType"/>
 
 </beans>
