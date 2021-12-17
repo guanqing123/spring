@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="serviceA" class="com.javacode2021.lesson10.SetterBean.ServiceA"/>
+    <bean id="serviceB" class="com.javacode2021.lesson10.SetterBean.ServiceB"/>
+
+    <bean id="setterBean" class="com.javacode2021.lesson10.SetterBean" autowire="byType"/>
+
+</beans>
