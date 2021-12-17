@@ -21,4 +21,15 @@ public class DependOnTest {
         context.close();
         System.out.println("spring容器已关闭!");
     }
+
+    @Test
+    public void strongDependenceBean() {
+        System.out.println("容器启动中！");
+        String beanXml = "classpath:/com/javacode2021/lesson9/strongDependenceBean.xml";
+        ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
+        System.out.println("容器启动完毕,准备关闭spring容器!");
+        /** 关闭容器 */
+        context.close();
+        System.out.println("spring容器已关闭!");
+    }
 }
