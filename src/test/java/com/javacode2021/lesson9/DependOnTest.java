@@ -32,4 +32,26 @@ public class DependOnTest {
         context.close();
         System.out.println("spring容器已关闭!");
     }
+
+    @Test
+    public void setterBean() {
+        System.out.println("容器启动中！");
+        String beanXml = "classpath:/com/javacode2021/lesson9/setterBean.xml";
+        ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
+        System.out.println("容器启动完毕,准备关闭spring容器!");
+        /** 关闭容器 */
+        context.close();
+        System.out.println("spring容器已关闭!");
+    }
+
+    @Test
+    public void dependOnBean() {
+        System.out.println("容器启动中！");
+        String beanXml = "classpath:/com/javacode2021/lesson9/dependOnBean.xml";
+        ClassPathXmlApplicationContext context = IocUtils.context(beanXml);
+        System.out.println("容器启动完毕,准备关闭spring容器!");
+        /** 关闭容器 */
+        context.close();
+        System.out.println("spring容器已关闭!");
+    }
 }
