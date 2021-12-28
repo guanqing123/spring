@@ -37,4 +37,17 @@ public class ConfigurationTest {
                     context.getBean(beanName)));
         }
     }
+
+    @Test
+    public void test3(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConifgBean2.class);
+        for (String beanName : context.getBeanDefinitionNames()) {
+            /** 别名 */
+            String[] aliases = context.getAliases(beanName);
+            System.out.println(String.format("bean名称:%s,别名:%s,bean对象:%s",
+                    beanName,
+                    Arrays.asList(aliases),
+                    context.getBean(beanName)));
+        }
+    }
 }
