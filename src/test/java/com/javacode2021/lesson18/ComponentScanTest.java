@@ -1,5 +1,6 @@
 package com.javacode2021.lesson18;
 
+import com.javacode2021.lesson18.test3.ScanBean3;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -21,6 +22,14 @@ public class ComponentScanTest {
     @Test
     public void test2(){
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ScanBean2.class);
+        for (String beanName : context.getBeanDefinitionNames()) {
+            System.out.println(beanName + "->" + context.getBean(beanName));
+        }
+    }
+
+    @Test
+    public void test3(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ScanBean3.class);
         for (String beanName : context.getBeanDefinitionNames()) {
             System.out.println(beanName + "->" + context.getBean(beanName));
         }
