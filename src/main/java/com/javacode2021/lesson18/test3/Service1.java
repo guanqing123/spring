@@ -5,6 +5,6 @@ package com.javacode2021.lesson18.test3;
  * @Author guanqing
  * @Date 2021/12/31 8:58
  **/
-@MyBean
+@MyBean("service1Bean")
 public class Service1 {
 }
