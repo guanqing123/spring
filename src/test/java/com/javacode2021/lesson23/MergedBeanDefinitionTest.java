@@ -15,6 +15,7 @@ public class MergedBeanDefinitionTest {
     public void test1(){
         /** 创建bean容器 */
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+
         /** 创建一个bean xml解析器 */
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(factory);
         /** 解析bean xml，将解析过程中产生的BeanDefinition注册到DefaultListableBeanFactory中 */
