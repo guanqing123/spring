@@ -4,7 +4,13 @@ import com.javacode2021.lesson24.module1.Module1Config;
 import com.javacode2021.lesson24.module2.Module2Config;
 import com.javacode2021.lesson24.module2.Service3;
 import org.junit.Test;
+import org.springframework.beans.factory.BeanFactoryUtils;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Arrays;
+import java.util.Map;
 
 /**
  * @description: TODO 类描述
@@ -45,5 +51,39 @@ public class ParentFactoryTest {
         Service3 service3 = childContext.getBean(Service3.class);
         System.out.println(service3.m1());
         System.out.println(service3.m2());
+    }
+
+    @Test
+    public void test3(){
+        /** 创建父容器parentFactory */
+        DefaultListableBeanFactory parentFactory = new DefaultListableBeanFactory();
+        /** 向父容器parentFactory注册一个[userName->"路人甲Java"] */
+        parentFactory.registerBeanDefinition("userName",
+                BeanDefinitionBuilder
+                        .genericBeanDefinition(String.class)
+                        .addConstructorArgValue("路人甲Java")
+                        .getBeanDefinition());
+
+        /** 创建一个子容器childFactory */
+        DefaultListableBeanFactory childFactory = new DefaultListableBeanFactory();
+        /** 调用setParentBeanFactory指定父容器 */
+        childFactory.setParentBeanFactory(parentFactory);
+        /** 向子容器parentFactory注册一个bean[address->"上海"] */
+        childFactory.registerBeanDefinition("address",
+                BeanDefinitionBuilder
+                        .genericBeanDefinition(String.class)
+                        .addConstructorArgValue("上海")
+                        .getBeanDefinition());
+
+        System.out.println("获取bean【userName】：" + childFactory.getBean("userName"));//@1
+
+        System.out.println(Arrays.asList(childFactory.getBeanNamesForType(String.class))); //@2
+
+        /** 层次查找所有符合类型的bean名称 */
+        String[] beanNamesForTypeIncludingAncestors = BeanFactoryUtils.beanNamesForTypeIncludingAncestors(childFactory, String.class);
+        System.out.println(Arrays.asList(beanNamesForTypeIncludingAncestors));
+
+        Map<String, String> beansOfTypeIncludingAncestors = BeanFactoryUtils.beansOfTypeIncludingAncestors(childFactory, String.class);
+        System.out.println(Arrays.asList(beansOfTypeIncludingAncestors));
     }
 }
