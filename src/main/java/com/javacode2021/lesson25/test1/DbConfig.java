@@ -1,4 +1,4 @@
-package com.javacode2021.lesson25;
+package com.javacode2021.lesson25.test1;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
