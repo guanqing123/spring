@@ -4,7 +4,7 @@ import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 
 /**
- * @description: TODO 类描述
+ * @description: MyScope 作用域的实现
  * @Author guanqing
  * @Date 2022/5/30 21:39
  **/
