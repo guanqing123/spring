@@ -8,11 +8,17 @@ import com.javacode2021.lesson25.test2.MainConfig2;
 import com.javacode2021.lesson25.test3.BeanMyScope;
 import com.javacode2021.lesson25.test3.MainConfig3;
 import com.javacode2021.lesson25.test3.User;
+import com.javacode2021.lesson25.test4.BeanRefreshScope;
+import com.javacode2021.lesson25.test4.MailService;
+import com.javacode2021.lesson25.test4.MainConfig4;
+import com.javacode2021.lesson25.test4.RefreshConfigUtil;
+import com.javacode2021.lesson25.test5.MainConfig5;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.MapPropertySource;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @description: TODO 类描述
@@ -68,6 +74,49 @@ public class ValueTest {
             System.out.println(String.format("********\n第%d次开始调用getUsername", i));
             System.out.println(user.getUsername());
             System.out.println(String.format("第%d次调用getUsername结束\n********\n", i));
+        }
+    }
+
+    @Test
+    public void test4() throws InterruptedException {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.getBeanFactory().registerScope(BeanRefreshScope.SCOPE_REFRESH, BeanRefreshScope.getInstance());
+        context.register(MainConfig4.class);
+        /** 刷新mail的配置到Environment */
+        RefreshConfigUtil.refreshMailPropertySource(context);
+        context.refresh();
+
+        MailService mailService = context.getBean(MailService.class);
+        System.out.println("配置未更新的情况下,输出3次");
+        for (int i = 0; i < 3; i++) { //@1
+            System.out.println(mailService);
+            TimeUnit.MILLISECONDS.sleep(200);
+        }
+
+        System.out.println("模拟3次更新配置效果");
+        for (int i = 0; i < 3; i++) { //@2
+            RefreshConfigUtil.updateDbConfig(context); //@3
+            System.out.println(mailService);
+            TimeUnit.MILLISECONDS.sleep(200);
+        }
+    }
+
+    @Test
+    public void test5(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.getBeanFactory().registerScope(com.javacode2021.lesson25.test5.BeanRefreshScope.SCOPE_REFRESH, com.javacode2021.lesson25.test5.BeanRefreshScope.getInstance());
+        context.register(MainConfig5.class);
+        com.javacode2021.lesson25.test5.RefreshConfigUtil.refreshMailPropertySource(context);
+        context.refresh();
+
+        com.javacode2021.lesson25.test5.MailService mailService = context.getBean(com.javacode2021.lesson25.test5.MailService.class);
+        for (int i = 0; i < 3; i++) {
+            System.out.println(mailService);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            com.javacode2021.lesson25.test5.RefreshConfigUtil.updateDbConfig(context);
+            System.out.println(mailService);
         }
     }
 
