@@ -29,4 +29,13 @@ public class EventTest {
         com.javacode2021.lesson27.userregister2.UserRegisterService bean = context.getBean(com.javacode2021.lesson27.userregister2.UserRegisterService.class);
         bean.registerUser("测试用户");
     }
+
+    @Test
+    public void test2(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(com.javacode2021.lesson27.userregister4.MainConfig0.class);
+        context.refresh();
+        com.javacode2021.lesson27.userregister4.UserRegisterService bean = context.getBean(com.javacode2021.lesson27.userregister4.UserRegisterService.class);
+        bean.register("001");
+    }
 }
