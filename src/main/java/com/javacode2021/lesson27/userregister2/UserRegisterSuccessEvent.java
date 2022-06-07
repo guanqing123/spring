@@ -1,6 +1,6 @@
 package com.javacode2021.lesson27.userregister2;
 
-import com.javacode2021.lesson27.evnet2.AbstractEvent;
+import com.javacode2021.lesson27.event2.AbstractEvent;
 
 /**
  * @description: TODO 类描述

@@ -1,4 +1,4 @@
-package com.javacode2021.lesson27.evnet2;
+package com.javacode2021.lesson27.event2;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

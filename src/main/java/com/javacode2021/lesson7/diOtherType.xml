@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userModel1" class="com.javacode2021.lesson7.UserModel"/>
+    <bean id="userModel2" class="com.javacode2021.lesson7.UserModel"/>
+
+    <bean id="diOtherTypeModel" class="com.javacode2021.lesson7.DiOtherTypeModel">
+        <property name="list1">
+            <list>
+                <value>Spring</value>
+                <value>SpringBoot</value>
+            </list>
+        </property>
+        <property name="set1">
+            <set>
+                <ref bean="userModel1"/>
+                <ref bean="userModel2"/>
+                <ref bean="userModel1"/>
+            </set>
+        </property>
+        <property name="array1">
+            <array>
+                <value>1</value>
+                <value>10</value>
+            </array>
+        </property>
+        <property name="map1">
+            <map>
+                <entry key="a" value="20"/>
+                <entry key="b" value="30"/>
+            </map>
+        </property>
+        <property name="properties1">
+            <props>
+                <prop key="k1">v1</prop>
+                <prop key="k2">v2</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

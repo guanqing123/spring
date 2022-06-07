@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="diByConstructorParamName" class="com.javacode2021.lesson7.UserModel">
+        <constructor-arg name="name" value="保时捷Macans"/>
+        <constructor-arg name="desc" value="我是通过构造器参数名注入的"/>
+    </bean>
+
+    <bean id="diByConstructorProperties" class="com.javacode2021.lesson7.UserModel">
+        <constructor-arg name="n" value="姓名"/>
+        <constructor-arg name="a" value="2"/>
+        <constructor-arg name="d" value="描述"/>
+    </bean>
+
+</beans>
