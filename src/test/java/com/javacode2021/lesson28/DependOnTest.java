@@ -5,6 +5,8 @@ import com.javacode2021.lesson28.test3.MainConfig3;
 import com.javacode2021.lesson28.test3.Service1;
 import com.javacode2021.lesson28.test3.Service2;
 import com.javacode2021.lesson28.test4.MainConfig4;
+import com.javacode2021.lesson28.test5.MainConfig5;
+import com.javacode2021.lesson28.test6.MainConfig6;
 import org.junit.Test;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -81,5 +83,19 @@ public class DependOnTest {
         service1.m1(); //@2
         System.out.println("----C-----");
         System.out.println(service2.getService1() == service1);
+    }
+
+    @Test
+    public void test6(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(MainConfig5.class);
+        context.refresh();
+    }
+
+    @Test
+    public void test7(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(MainConfig6.class);
+        context.refresh();
     }
 }
